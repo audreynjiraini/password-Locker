@@ -51,6 +51,13 @@ class TestCredentials(unittest.TestCase):
         
         self.new_account = Credentials("Twitter","audreynjiraini","12345678")
         
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+            
+        Credentials.credentials_list = []
+        
     def test_init(self):
         '''
         test_init test case to test if the object is initialized properly
@@ -67,6 +74,16 @@ class TestCredentials(unittest.TestCase):
         
         self.new_account.save_credentials()
         self.assertEqual(len(Credentials.credentials_list),1)
+        
+    def test_save_multiple_credentials(self):
+        '''
+        test to check if we can save multiple credentials objects to credentials_list
+        '''
+        
+        self.new_account.save_credentials()
+        test_account = Credentials("Instagram","audrey","123456789") #new credential
+        test_account.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),2)   
         
     def test_display_credentials(self):
         '''
