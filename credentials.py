@@ -26,3 +26,10 @@ class User:
         '''
         
         User.user_list.append(self)
+        
+class Credentials:
+    '''
+    Class that creates account details, generates passwords, and saves this information
+    '''
+    
+    
