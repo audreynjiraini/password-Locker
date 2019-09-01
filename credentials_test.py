@@ -100,7 +100,7 @@ class TestCredentials(unittest.TestCase):
         test_account = Credentials("Instagram","audrey","123456789") #new credential
         test_account.save_credentials()
         
-        self.new_account.delete_credentials() #deleting a credential object
+        self.new_account.delete_credentials() #deleting a credential(account) object
         self.assertEqual(len(Credentials.credentials_list),1)
                 
 if __name__ == '__main__':
