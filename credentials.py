@@ -53,3 +53,11 @@ class Credentials:
         '''
         
         Credentials.credentials_list.append(self)
+        
+    @classmethod
+    def display_credentials(cls):
+        '''
+        Class method to display the saved credentials
+        '''
+        
+        return cls.credentials_list
