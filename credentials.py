@@ -32,4 +32,17 @@ class Credentials:
     Class that creates account details, generates passwords, and saves this information
     '''
     
-    
+    def __init__(self,account_name,username,password):
+        '''
+        __init__ method that helps us define properties for our objects.
+        
+        Args:
+            account_name: Account Details e.g Gmail.
+            username: Account username e.g audreynjiraini.
+            password: Account password eg 12345.
+        '''
+        
+        self.account_name = account_name
+        self.username = username
+        self.password = password
+        
