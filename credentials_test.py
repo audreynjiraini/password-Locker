@@ -51,5 +51,14 @@ class TestCredentials(unittest.TestCase):
         
         self.new_account = Credentials("Twitter","audreynjiraini","12345678")
         
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+        
+        self.assertEqual(self.new_account.account_name,"Twitter")
+        self.assertEqual(self.new_account.username,"audreynjiraini")
+        self.assertEqual(self.new_account.password,"12345678")
+        
 if __name__ == '__main__':
     unittest.main()     
