@@ -1,4 +1,5 @@
 import unittest #import unittest module
+from credentials import User
 
 class TestCredentials(unittest.TestCase):
     '''
@@ -12,6 +13,9 @@ class TestCredentials(unittest.TestCase):
         '''
         Set up method to run before each test case.
         '''
+        
+        # self.new_user = User("Audrey","Njiraini","12345678") # create contact object
+
         
     def test_init(self):
         '''
