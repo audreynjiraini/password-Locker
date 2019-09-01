@@ -1,5 +1,6 @@
 import unittest #import unittest module
 from credentials import User
+from credentials import Credentials
 
 class TestUser(unittest.TestCase):
     '''
@@ -34,6 +35,16 @@ class TestUser(unittest.TestCase):
         
         self.new_user.save_user() # save the new contact
         self.assertEqual(len(User.user_list),1)
+        
+class TestCredentials(unittest.TestCase):
+    '''
+    Test class that defines test cases for the credentials class behaviours.
+    
+    Args:
+        unittest.TestCase: TestCase class that helps in creating test cases
+    ''' 
+    
+
         
 if __name__ == '__main__':
     unittest.main()     
