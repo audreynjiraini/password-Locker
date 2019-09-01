@@ -65,7 +65,7 @@ class TestCredentials(unittest.TestCase):
         test case to test if the credentials account object is saved into the credentials list
         '''
         
-        self.new_account.save_account()
+        self.new_account.save_credentials()
         self.assertEqual(len(Credentials.credentials_list),1)
         
 if __name__ == '__main__':
