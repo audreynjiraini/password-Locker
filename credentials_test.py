@@ -1,7 +1,7 @@
 import unittest #import unittest module
 from credentials import User
 
-class TestCredentials(unittest.TestCase):
+class TestUser(unittest.TestCase):
     '''
     Test class that defines test cases for the user class behaviours.
     
