@@ -103,3 +103,13 @@ class Credentials:
                 break
     
         return password
+    
+    @classmethod
+    def find_credentials(cls,account_name):
+        '''
+        Method that returns a credential based on the account_name
+        '''
+    
+        for credential in cls.credentials_list:
+            if credential.account_name == account_name:
+                return credential

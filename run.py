@@ -65,6 +65,15 @@ def delete_credentials(credential):
     '''
     
     credential.delete_credentials()
+    
+def find_credentials(account_name):
+    '''
+    Function that finds a credential based on the account_name
+    '''
+    
+    return Credentials.find_credentials(account_name)
+
+
 
 def main():
     print("Hello. Welcome to password-Locker. What is your name?")
@@ -117,7 +126,7 @@ def main():
                 
                 while True:
                     print("-"*77)
-                    print("Use the following codes: cre - create new credentials, dis - display credentials, del - delete credentials, ex - exit")
+                    print("Use the following codes: cre - create new credentials, dis - display credentials, fin - find credentials by account_name, del - delete credentials, ex - exit")
                     nav_code = input().lower()
                     
                     if nav_code == 'cre':
@@ -154,8 +163,21 @@ def main():
                         else:
                             print("You don't seem to have any credentials saved yet.")   
                             
+                    elif nav_code == 'fin':
+                        print("Enter the account name you want to delete e.g Instagram")
+                        search_name = input()
+                        search_credential = find_credentials(search_name)
+                        if search_credential:
+                            print(f"Account_name : {search_credential.account_name}")
+                            print('-' * 77)
+                            print(f"Username: {search_credential.username} Password :{search_credential.password}")
+                            print('-' * 77)
+                        else:
+                            print("That credential does not exist")
+                            print('\n')
+                        
                     elif nav_code == 'del':
-                        print("Are you sure you would like to delete a credential?")
+                        print("Enter the account name you want to delete e.g Instagram")
                         choice = input()
                         
                         
