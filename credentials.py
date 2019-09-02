@@ -37,6 +37,8 @@ class Credentials:
     '''
     credentials_list = []
     
+    
+    
     def __init__(self,account_name,username,password):
         '''
         __init__ method that helps us define properties for our objects.
@@ -87,4 +89,4 @@ class Credentials:
                 break
 
         self.password = password
-        return self.password
+        return password
