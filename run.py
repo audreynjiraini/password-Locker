@@ -164,7 +164,7 @@ def main():
                             print("You don't seem to have any credentials saved yet.")   
                             
                     elif nav_code == 'fin':
-                        print("Enter the account name you want to delete e.g Instagram")
+                        print("Enter the account name you want to find e.g Instagram")
                         search_name = input()
                         search_credential = find_credentials(search_name)
                         if search_credential:
