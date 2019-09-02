@@ -1,6 +1,5 @@
 import random
 import string
-alphabet = string.ascii_letters + string.digits
 
 class User:
     '''
@@ -37,18 +36,30 @@ class Credentials:
     '''
     credentials_list = []
     
+    @classmethod
+    def verify_user(cls,username,password):
+        '''
+        Function that checks whether the details entered match those in the user_list
+        '''
+        
+        current_user = ''
+        for user in User.user_list:
+            if (user.username == username and user.password == password):
+                current_user = user.username
+        return current_user
     
-    
-    def __init__(self,account_name,username,password):
+    def __init__(self, user_name, account_name, username, password):
         '''
         __init__ method that helps us define properties for our objects.
         
         Args:
+            user_name: password-Locker username
             account_name: Account Details e.g Gmail.
             username: Account username e.g audreynjiraini.
             password: Account password eg 12345.
         '''
         
+        self.user_name = user_name
         self.account_name = account_name
         self.username = username
         self.password = password
@@ -61,12 +72,16 @@ class Credentials:
         Credentials.credentials_list.append(self)
         
     @classmethod
-    def display_credentials(cls):
+    def display_credentials(cls,user_name):
         '''
         Class method to display the saved credentials
         '''
         
-        return cls.credentials_list
+        credentials_list = []
+        for credential in cls.credentials_list:
+            if credential.user_name == user_name:
+                credentials_list.append(credential)
+        return credentials_list
     
     def delete_credentials(self):
         '''
@@ -75,18 +90,16 @@ class Credentials:
         
         Credentials.credentials_list.remove(self)
         
-    def generate_password(self):
+    def generate_password(self, alphabet = string.ascii_letters + string.digits):
         '''
         Function to generate a 10 character password
         '''
-        import string
-        alphabet = string.ascii_letters + string.digits
+        
         while True:
             password = ''.join(random.choice(alphabet) for i in range(10))
             if (any(c.islower() for c in password)
                     and any(c.isupper() for c in password)
                     and sum(c.isdigit() for c in password) >= 3):
                 break
-
-        self.password = password
+    
         return password

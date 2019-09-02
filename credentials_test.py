@@ -49,7 +49,7 @@ class TestCredentials(unittest.TestCase):
         Set up method to run before each test case.
         ''' 
         
-        self.new_account = Credentials("Twitter","audreynjiraini","12345678")
+        self.new_account = Credentials("audrey","Twitter","audreynjiraini","12345678")
         
     def tearDown(self):
         '''
@@ -81,7 +81,7 @@ class TestCredentials(unittest.TestCase):
         '''
         
         self.new_account.save_credentials()
-        test_account = Credentials("Instagram","audrey","123456789") #new credential
+        test_account = Credentials("audrey","Instagram","audreynjiraini","123456789") #new credential
         test_account.save_credentials()
         self.assertEqual(len(Credentials.credentials_list),2)   
         
@@ -90,14 +90,14 @@ class TestCredentials(unittest.TestCase):
         Test to check if the correct credentials are displayed
         '''
         
-        self.assertListEqual(Credentials.display_credentials(),Credentials.credentials_list)
+        self.assertListEqual(Credentials.display_credentials("audrey"),Credentials.credentials_list)
         
     def test_delete_credentials(self):
         '''
         test if we can remove a credential from credentials_list once we no longer need it
         '''
         self.new_account.save_credentials()
-        test_account = Credentials("Instagram","audrey","123456789") #new credential
+        test_account = Credentials("audrey","Instagram","audrey","123456789") #new credential
         test_account.save_credentials()
         
         self.new_account.delete_credentials() #deleting a credential(account) object
