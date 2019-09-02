@@ -59,6 +59,13 @@ def display_credentials(user_name):
     
     return Credentials.display_credentials(user_name)
 
+def delete_credentials(credential):
+    '''
+    Function that deletes credentials account once the user no longer needs them in the app
+    '''
+    
+    credential.delete_credentials()
+
 def main():
     print("Hello. Welcome to password-Locker. What is your name?")
     print('\n')
@@ -149,6 +156,9 @@ def main():
                             
                     elif nav_code == 'del':
                         print("Are you sure you would like to delete a credential?")
+                        choice = input()
+                        
+                        
                   
                     elif nav_code == 'ex':
                         print("Goodbye....")
@@ -156,6 +166,9 @@ def main():
                     
                     else:
                         print("I really didn't get that. Please enter the nav code again.")
+               
+            else:
+                print("Please enter the correct password.") 
                         
         elif short_code == 'ex':
             break
