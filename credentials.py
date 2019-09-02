@@ -90,6 +90,16 @@ class Credentials:
         
         Credentials.credentials_list.remove(self)
         
+    @classmethod
+    def find_credentials(cls,account_name):
+        '''
+        Method that returns a credential that matches the account_name entered
+        '''
+        
+        for credential in cls.credentials_list:
+            if credential.account_name == account_name:
+                return credential
+        
     def generate_password(self, alphabet = string.ascii_letters + string.digits):
         '''
         Function to generate a 10 character password

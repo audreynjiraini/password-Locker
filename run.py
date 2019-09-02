@@ -178,9 +178,17 @@ def main():
                         
                     elif nav_code == 'del':
                         print("Enter the account name you want to delete e.g Instagram")
-                        choice = input()
-                        
-                        
+                        search_name = input()
+                        if find_credentials(search_name):
+                            search_credential = find_credentials(search_name)
+                            print("-"*77)
+                            search_credential.delete_credentials()
+                            print('\n')
+                            print(f"Your stored credentials for : {search_credential.account_name} successfully deleted!!!")
+                            print('\n')
+                            
+                        else:
+                            print("The credential you want to delete does not exist")
                   
                     elif nav_code == 'ex':
                         print("Goodbye....")
